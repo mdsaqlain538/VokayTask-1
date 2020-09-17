@@ -117,5 +117,5 @@ app.get('/logout', (req, res) => {
 // app.post('/sample',(req,res)=>{
 //     console.log(req.body.number);
 // });
-const PORT = process.env.PORT || 1519;
+const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`Sample Google Login ${PORT}!`))
