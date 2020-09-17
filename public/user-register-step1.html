@@ -64,7 +64,7 @@
                 </div> -->
                 <div class="row">
                     <form action="/user-register-step2" method="POST" class="form-inline">
-                        <input name="number" type="text" class="form-control" size="30"/>
+                        <input name="number" required="required" type="tel" pattern="[6789][0-9]{9}" class="form-control" size="30"/>
                         <button class="btn btn-primary" type="submit">Submit</button>
                        </form>
                 </div>
