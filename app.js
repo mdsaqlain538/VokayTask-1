@@ -47,8 +47,8 @@ app.get('/good', isLoggedIn, (req, res) =>
         .status(200)
         .sendFile(path.join(__dirname,"public","user-register-step1.html"));
     //res.send(`Welcome To Twenty70 Mr ${req.user.displayName}!`);
-    console.log(req.user);
-    console.log(req.user._json.email);
+    //console.log(req.user);
+    //console.log(req.user._json.email);
 });
 
 
@@ -84,9 +84,16 @@ app.post('/user-register-step2',(req,res)=>{
             OTP+=digits[Math.floor(Math.random()*10)];
         }
         res.redirect('/user-register-step2');
+        console.log(req.user);
         console.log(number);
         console.log(OTP);
 });
+
+
+app.post('/user-challenge-add',(req,res)=>{
+    res.send(req.body);
+    console.log(req.body);
+})
 
 //API for OTP Verification
 //fJfBJnyz91c-TbqrXa8U1yvh9RFUFlIIypeUFJkyJN
@@ -117,5 +124,5 @@ app.get('/logout', (req, res) => {
 // app.post('/sample',(req,res)=>{
 //     console.log(req.body.number);
 // });
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 1519;
 app.listen(PORT, () => console.log(`Sample Google Login ${PORT}!`))
