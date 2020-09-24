@@ -8,7 +8,7 @@
 
         <link rel="shortcut icon" href="img/favicon_1.ico">
 
-        <title>Vokay - Followers</title>    
+        <title>Vokay - My Posts</title>    
 
 
         <!-- Bootstrap core CSS -->
@@ -57,8 +57,8 @@
                     <li><a href="user-profile.html"><i class="ion-eye"></i> <span class="nav-label">Profile </span></a></li>
                     <li><a href="user-feed.html"><i class="ion-eye"></i> <span class="nav-label">Feed </span></a></li>					
                     <li><a href="user-posts.html"><i class="ion-ios7-paper-outline"></i> <span class="nav-label">My Posts</span></a></li>
-                    <li class="active"><a href="user-followers.html"><i class="ion-ios7-paper-outline"></i> <span class="nav-label">Followers</span></a></li>
-                    <li><a href="user-create-challenge.html"><i class="ion-ios7-paper-outline"></i> <span class="nav-label">Create Challenge</span></a></li>					
+                    <li><a href="user-followers.html"><i class="ion-ios7-paper-outline"></i> <span class="nav-label">Followers</span></a></li>
+                    <li class="active"><a href="user-create-challenge.html"><i class="ion-ios7-paper-outline"></i> <span class="nav-label">Create Challenge</span></a></li>					
                     <li><a href="user-challenges.html"><i class="ion-ios7-paper-outline"></i> <span class="nav-label">Challenges</span></a></li>
                     <li><a href="user-winners.html"><i class="ion-ios7-paper-outline"></i> <span class="nav-label">Winners</span></a></li>
                 </ul>
@@ -108,28 +108,44 @@
 
             <div class="wraper container-fluid">
                 <div class="page-title"> 
-                    <h3 class="title">Followers</h3> 
+                    <h3 class="title">Challenges created by Me</h3> 
                 </div>
 
 
                 <div class="panel">
                             
                     <div class="panel-body">
-
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="m-b-30">
+                                    <a href="user-challenge-add.html"><button class="btn btn-primary waves-effect waves-light">Create A New Challenge <i class="fa fa-plus"></i></button></a>
+                                </div>
+                            </div>
+                        </div>
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>User name</th>
-                                    <th>Followed On</th>
-                                    <th>View User</th>									
+                                    <th>Title</th>
+                                    <th>Thumbnail</th>
+                                    <th>Reward</th>									
+                                    <th>Start Date</th>
+                                    <th>End Date</th>									
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                {{#each list}}
                                 <tr class="gradeX">
-                                    <td>John Doe</td>
-                                    <td>Aug 10 2020 10:00 a.m.</td>
-                                    <td><a href"#">View</a></td>									
+                                    <td>{{this.title}}</td>
+                                    <td><img src="img/thumbnail.png"></td>
+                                    <td>{{this.reward}}</td>									
+                                    <td>{{this.start}}</td>
+                                    <td>{{this.end}}</td>									
+                                    <td>
+										View
+                                    </td>
                                 </tr>
+                                {{/each}}
                             </tbody>
                         </table>
                     </div>

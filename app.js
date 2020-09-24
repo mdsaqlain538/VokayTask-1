@@ -145,13 +145,29 @@ app.get('/user-challenge-add.html', (req, res)=>{
     res.render('user-challenge-add');
   });
 
+app.get('/user-create-challenge.html',(req,res)=>{
+    createSchema.find((err,docs)=>{
+        if(!err){
+            res.render("user-create-challenge",{
+                list:docs
+            })
+        }
+    })
+})
+
 app.get('/user-challenge-add',(re,res)=>{
     res.render('user-challenge-add');
+});
+
+app.get('/user-challenges.html',(req,res)=>{
+    res.render('user-challenges');
 });
 
 app.post('/user-challenge-add',(req,res)=>{
     const create = new createSchema(req.body);
     create.date = req.body.date[0];
+    create.Image = req.body.Image;
+    //console.log(req.body);
     create.save((err, user) => {
         //console.log(err);
         
@@ -166,6 +182,7 @@ app.post('/user-challenge-add',(req,res)=>{
                 intro: 'Challenge Created ! ',
                 message: 'Sucessfully'
               }
+              console.log(user);
               res.redirect('/user-challenge-add');
         }
         //res.render('/user-challenge-add');
